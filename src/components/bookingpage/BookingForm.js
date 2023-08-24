@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../../App.css'
 import SuccesModal from '../modals/SuccesModal'
 
-export default function BookingForm(props) {
+export default function BookingForm({availableTimes,updateTimes}) {
   const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
   const [email,setEmail] = useState('')
@@ -13,15 +13,18 @@ export default function BookingForm(props) {
   const [comment,setComment] = useState('')
 
   const [finalTime, setFinalTime] = useState(
-    props.availableTimes.map((times) => <option>{times}</option>)
+    availableTimes.map((times) => <option>{times}</option>)
   );
 
 function handleDateChange(e){
   setDate(e.target.value);
-  var stringify = e.target.value;
+  const stringify = e.target.value;
   const date = new Date(stringify);
-  props.updateTimes(date);
-  setFinalTime(props.availableTimes.map((times) => <option>{times}</option>));
+  updateTimes(date);
+  setFinalTime(availableTimes.map((times) => <option>{times}</option>));
+
+
+ 
 }
 
 const clearForm = () => {
@@ -140,7 +143,7 @@ const closeModal = () => {
             type='date'
             required
              value={date}
-             onChange={{handleDateChange}}
+             onChange={handleDateChange}
              placeholder="Date"
            />
          </div>

@@ -532,5 +532,6 @@ input,select {
 }
 
 .modal-content button:hover {
-  background-color: #f4ce14; /* Darker shade for hover */
+  background-color: #f4ce14;
+  color:black; /* Darker shade for hover */
 }
