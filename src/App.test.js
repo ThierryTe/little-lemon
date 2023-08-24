@@ -29,7 +29,6 @@ describe('BookingForm', () => {
     expect(mockUpdateTimes).toHaveBeenCalledWith(new Date('2023-08-24'));
 
     fireEvent.click(getByText(/close/i));
-  
     expect(screen.queryByText(/success/i)).not.toBeInTheDocument();
   });
 });
